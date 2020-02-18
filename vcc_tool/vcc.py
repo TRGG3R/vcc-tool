@@ -18,16 +18,18 @@ class Pairing(Error):
 
 
 def transact():
-    # Sets a quantity range to sell. (10,15) is randomly selected between 10 and 15 and rounded to two decimal places
+    """Sends an API request to the VCC exchange"""
+    # Sets a quantity range to sell. Example: (10,15) randomly selects a number between 10 and 15
     quantity = round(random.uniform(10, 15), 2)
 
-    # Coin to trade (XRP, FCT, etc...)
+    # Coin to trade (FCT, ADA, BTC etc...)
     coin = 'fct'
 
     # Base currency coin is denominated in (BTC, USDT, etc...)
     currency = "usdt"
 
-    # API key and secret key. Must set env variable
+    # API key and secret key. Must set through env variable
+    # Can change to your own reference via config file or other means
     api_key = os.environ["VCC_API"]
     secret = bytes(os.environ["VCC_SECRET"], "utf-8")
 
